@@ -61,7 +61,7 @@ fn memmem_prebuilt_count(b: &Benchmark) -> anyhow::Result<Vec<Sample>> {
             })
         }
     }
-    #[cfg(target_arch = "aarch64")]
+    #[cfg(all(target_arch = "aarch64", target_endian = "little"))]
     {
         use sliceslice::aarch64::NeonSearcher;
         anyhow::ensure!(
@@ -110,7 +110,7 @@ fn memmem_prebuilt_needles(b: &Benchmark) -> anyhow::Result<Vec<Sample>> {
             Ok(count)
         })
     }
-    #[cfg(target_arch = "aarch64")]
+    #[cfg(all(target_arch = "aarch64", target_endian = "little"))]
     {
         use sliceslice::aarch64::NeonSearcher;
 
@@ -170,7 +170,7 @@ fn memmem_prebuilt_haystack(b: &Benchmark) -> anyhow::Result<Vec<Sample>> {
             Ok(count)
         })
     }
-    #[cfg(target_arch = "aarch64")]
+    #[cfg(all(target_arch = "aarch64", target_endian = "little"))]
     {
         use sliceslice::aarch64::NeonSearcher;
 
@@ -222,7 +222,7 @@ fn memmem_oneshot_count(b: &Benchmark) -> anyhow::Result<Vec<Sample>> {
             })
         })
     }
-    #[cfg(target_arch = "aarch64")]
+    #[cfg(all(target_arch = "aarch64", target_endian = "little"))]
     {
         use sliceslice::aarch64::NeonSearcher;
 

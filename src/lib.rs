@@ -178,7 +178,7 @@ Originally, this crate was literally just a safe wrapper function around the
     not(any(
         all(target_arch = "x86_64", target_feature = "sse2"),
         all(target_arch = "wasm32", target_feature = "simd128"),
-        target_arch = "aarch64",
+        all(target_arch = "aarch64", target_endian = "little")
     )),
     allow(dead_code)
 )]

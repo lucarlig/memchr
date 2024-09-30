@@ -8,7 +8,7 @@ level crate API.
 pub mod all;
 pub(crate) mod generic;
 
-#[cfg(target_arch = "aarch64")]
+#[cfg(all(target_arch = "aarch64", target_endian = "little"))]
 pub mod aarch64;
 #[cfg(all(target_arch = "wasm32", target_feature = "simd128"))]
 pub mod wasm32;
